@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimary"
+    android:orientation="vertical"
+    tools:context="com.jkt48.vbast.laundry_online.Login">
+    <TextView
+        android:id="@+id/txt_title_login"
+        android:text="L ogin"
+        android:gravity="center"
+        android:layout_margin="@dimen/margin_horizontal"
+        android:textColor="@color/colorAccent"
+        android:textSize="50sp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_marginTop="50dp"
+        android:layout_marginLeft="@dimen/margin_horizontal"
+        android:layout_marginRight="@dimen/margin_horizontal"
+        android:background="#fff"
+        android:layout_height="wrap_content">
+        <EditText
+            android:id="@+id/et_email"
+            android:layout_margin="@dimen/margin_horizontal"
+            android:layout_width="match_parent"
+            android:drawableRight="@drawable/email"
+            android:padding="10dp"
+            android:drawablePadding="10dp"
+            android:hint="Masukan Email...."
+            android:inputType="textEmailAddress"
+            android:background="@drawable/textbox_design"
+            android:layout_height="45dp" />
+        <EditText
+            android:background="@drawable/textbox_design"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:padding="10dp"
+            android:inputType="textPassword"
+            android:hint="Masukan Password..."
+            android:drawablePadding="10dp"
+            android:layout_margin="@dimen/margin_horizontal"
+            android:drawableRight="@drawable/password"
+            android:layout_below="@id/et_email"
+            />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_margin="@dimen/margin_horizontal"
+        android:layout_height="match_parent">
+
+        <Button
+            android:id="@+id/btn_masuk"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_margin="@dimen/margin_horizontal"
+            android:layout_centerHorizontal="true"
+            android:layout_gravity="bottom"
+            android:layout_marginLeft="@dimen/margin_horizontal"
+            android:layout_marginRight="@dimen/margin_horizontal"
+            android:layout_marginTop="29dp"
+            android:background="@drawable/radius_button"
+            android:text="Masuk"
+            android:textColor="@color/colorPrimary" />
+
+        <TextView
+            android:id="@+id/btn_daftar"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_alignEnd="@+id/btn_masuk"
+            android:layout_centerVertical="true"
+            android:gravity="bottom"
+            android:text="Not a Member ? Sign Up Now"
+            android:textColor="#09f" />
+    </RelativeLayout>
+</LinearLayout>
