@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView android:layout_height="wrap_content"
+    android:layout_width="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.jkt48.vbast.laundry_online.Daftar">
+    <TextView
+        android:id="@+id/txt_title_daftar"
+        android:text="Daftar"
+        android:gravity="center"
+        android:layout_margin="@dimen/margin_horizontal"
+        android:textColor="@color/colorAccent"
+        android:textSize="50sp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="@dimen/margin_horizontal"
+        android:layout_marginRight="@dimen/margin_horizontal"
+        android:background="#fff"
+        android:layout_height="wrap_content">
+        <EditText
+            android:id="@+id/et_daftar_nama"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:padding="10dp"
+            android:inputType="text"
+            android:background="@drawable/textbox_design"
+            android:layout_margin="@dimen/margin_horizontal"
+            android:drawableRight="@drawable/user"
+            android:drawablePadding="10dp"
+            android:hint="Masukan Nama..."
+            />
+        <EditText
+            android:id="@+id/et_daftar_alamat"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:padding="10dp"
+            android:drawablePadding="10dp"
+            android:drawableRight="@drawable/mapmarker"
+            android:layout_below="@id/et_daftar_nama"
+            android:background="@drawable/textbox_design"
+            android:layout_margin="@dimen/margin_horizontal"
+            android:hint="Masukan Alamat..."
+            android:inputType="textAutoComplete"
+            />
+        <EditText
+            android:id="@+id/et_daftar_no_hp"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:padding="10dp"
+            android:background="@drawable/textbox_design"
+            android:layout_margin="@dimen/margin_horizontal"
+            android:drawableRight="@drawable/phonereceiver"
+            android:drawablePadding="10dp"
+            android:inputType="number"
+            android:hint="Masukan No HP..."
+            android:layout_below="@id/et_daftar_alamat"
+            />
+        <EditText
+            android:id="@+id/et_daftar_email"
+            android:layout_margin="@dimen/margin_horizontal"
+            android:layout_width="match_parent"
+            android:drawableRight="@drawable/email"
+            android:padding="10dp"
+            android:drawablePadding="10dp"
+            android:hint="Masukan Email...."
+            android:inputType="textEmailAddress"
+            android:background="@drawable/textbox_design"
+            android:layout_height="45dp"
+            android:layout_below="@id/et_daftar_no_hp"
+            />
+        <EditText
+            android:id="@+id/et_daftar_password"
+            android:background="@drawable/textbox_design"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:padding="10dp"
+            android:inputType="textPassword"
+            android:hint="Masukan Password..."
+            android:drawablePadding="10dp"
+            android:layout_margin="@dimen/margin_horizontal"
+            android:drawableRight="@drawable/password"
+            android:layout_below="@id/et_daftar_email"
+            />
+
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_marginLeft="@dimen/margin_horizontal"
+        android:layout_marginRight="@dimen/margin_horizontal"
+        android:background="#fff"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:id="@+id/btn_daftar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_margin="@dimen/margin_horizontal"
+            android:layout_centerHorizontal="true"
+            android:layout_gravity="bottom"
+            android:layout_marginLeft="@dimen/margin_horizontal"
+            android:layout_marginRight="@dimen/margin_horizontal"
+            android:layout_marginTop="29dp"
+            android:background="@drawable/radius_button"
+            android:text="Daftar"
+            android:textColor="@color/colorPrimary" />
+
+    </RelativeLayout>
+</LinearLayout>
+</ScrollView>
