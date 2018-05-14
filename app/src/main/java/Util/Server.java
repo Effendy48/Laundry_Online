@@ -5,5 +5,5 @@ package Util;
  */
 
 public class Server {
-    String URL = "http://192.168.43.122/laundry/";
+    public static final String URL = "http://192.168.43.122/laundry/";
 }
