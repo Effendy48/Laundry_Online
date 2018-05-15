@@ -7,6 +7,7 @@
     android:orientation="horizontal"
     tools:context="com.jkt48.vbast.laundry_online.MainActivity">
     <Button
+        android:id="@+id/btn_pesan"
         android:layout_width="100dp"
         android:layout_margin="10dp"
         android:drawableTop="@drawable/laundry"
@@ -17,6 +18,7 @@
         android:layout_height="100dp" />
 
     <Button
+        android:id="@+id/btn_tunggu"
         android:layout_width="100dp"
         android:layout_margin="10dp"
         android:drawableTop="@drawable/clothes"
@@ -26,6 +28,7 @@
         android:text="Tunggu"
         android:layout_height="100dp" />
     <Button
+        android:id="@+id/btn_bayar"
         android:layout_width="100dp"
         android:layout_margin="10dp"
         android:drawableTop="@drawable/squeeze"
@@ -34,4 +37,5 @@
         android:padding="20dp"
         android:text="Bayar"
         android:layout_height="100dp" />
+
 </LinearLayout>
