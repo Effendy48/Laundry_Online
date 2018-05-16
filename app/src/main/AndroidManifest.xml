@@ -17,7 +17,12 @@
         tools:replace="android:icon">
         <activity
             android:name=".MainActivity"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.media.action.IMAGE_CAPTURE" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+            </activity>
         <activity
             android:name=".Landing"
             android:screenOrientation="portrait">
@@ -31,7 +36,14 @@
             android:name=".Login"
             android:screenOrientation="portrait" />
         <activity android:name=".Daftar" />
-        <activity android:name=".Pesan"></activity>
+        <activity android:name=".Pesan" />
+        <activity android:name=".notification"></activity>
+        <receiver android:name=".AlarmReceiver">
+            <intent-filter>
+                <action android:name="android.media.action.DISPLAY_NOTIFICATION" />
+                <action android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </receiver>
     </application>
 
 </manifest>

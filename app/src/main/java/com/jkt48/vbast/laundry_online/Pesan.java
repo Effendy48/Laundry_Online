@@ -1,8 +1,11 @@
 package com.jkt48.vbast.laundry_online;
 
+import android.app.NotificationManager;
+import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.NotificationCompat;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -35,11 +38,27 @@ public class Pesan extends AppCompatActivity {
         img_Tambah.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                int total =  berat ++;
+            //Membangun Dan MenSet-Up Notification Dengan NotificationCompat.Builder
+                NotificationCompat.Builder builder = (NotificationCompat.Builder) new NotificationCompat.Builder(getApplicationContext()).
+                        setSmallIcon(R.drawable.clothes).//Memberikan Icon
+                        setContentTitle("Notifikasi Saya").//Memberikan Title
+                        setAutoCancel(true).//Untuk MenSwipe atau Menghapus Notifikasi
+                        setContentText("Selamat Bergabung");//Isi Text
+
+                /*
+
+                Kemudian kita harus menambahkan Notification dengan Menggunakan Notification Manager
+                 */
+                NotificationManager notificationManager = (NotificationManager)getSystemService(Context.NOTIFICATION_SERVICE);
+                notificationManager.notify(1 ,builder.build());
+
+                /*int total =  berat ++;
                 int bayar = total * 10000;
 
                 tv_total_bayar.setText(String.valueOf(bayar));
-                tv_Berat.setText(String.valueOf(total));
+                tv_Berat.setText(String.valueOf(total)); */
+
+
             }
         });
         img_Kurang.setOnClickListener(new View.OnClickListener() {

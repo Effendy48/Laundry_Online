@@ -1,5 +1,7 @@
 package com.jkt48.vbast.laundry_online;
 
+import android.app.AlarmManager;
+import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -10,6 +12,8 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import org.w3c.dom.Text;
+
+import java.util.Calendar;
 
 public class MainActivity extends AppCompatActivity {
     Button btn_Pesan,btn_Tunggu,btn_Bayar;
@@ -25,6 +29,17 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        AlarmManager alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
+
+        Intent notificationIntent = new Intent(this, AlarmReceiver.class);
+        PendingIntent broadcast = PendingIntent.getBroadcast(this, 100, notificationIntent, PendingIntent.FLAG_UPDATE_CURRENT);
+
+        Calendar cal = Calendar.getInstance();
+        cal.add(Calendar.SECOND, 5);
+        alarmManager.setRepeating(AlarmManager.RTC_WAKEUP,cal.getTimeInMillis(),AlarmManager.INTERVAL_FIFTEEN_MINUTES,broadcast);
+        //alarmManager.setExact(AlarmManager.RTC_WAKEUP, cal.getTimeInMillis(), broadcast);
+
 
         sharedPreferences = getSharedPreferences(Login.my_shared_preference, Context.MODE_PRIVATE);
         kd = getIntent().getStringExtra(TAG_KD);
