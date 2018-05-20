@@ -12,5 +12,7 @@
         android:color="@color/colorPrimaryDark"
         android:width="3dp"
         android:dashWidth="6dp"
+
         ></stroke>
+
 </shape>

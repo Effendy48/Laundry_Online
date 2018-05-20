@@ -53,6 +53,8 @@ public class Daftar extends AppCompatActivity {
 
             btn_Daftar = (Button)findViewById(R.id.btn_daftar);
 
+
+
         //End
 
         Lobster = Typeface.createFromAsset(getAssets(),"Lobster.ttf");

@@ -30,5 +30,7 @@ dependencies {
     compile 'com.android.volley:volley:1.0.0'
     compile 'com.android.support:recyclerview-v7:26.+'
     compile 'com.android.support:design:26.+'
+    //compile 'com.github.mreram:ticketview:1.0.0'
+
     testCompile 'junit:junit:4.12'
 }

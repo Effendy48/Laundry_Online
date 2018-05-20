@@ -24,9 +24,9 @@ public class AlarmReceiver extends BroadcastReceiver {
         PendingIntent pendingIntent = stackBuilder.getPendingIntent(0, PendingIntent.FLAG_UPDATE_CURRENT);
         NotificationCompat.Builder builder = new NotificationCompat.Builder(context);
 
-        Notification notification = builder.setContentTitle("Demo App Notifikasi").
-                setContentText("New Notifikasi From Demo App")
-                .setTicker("New Message Alert !")
+        Notification notification = builder.setContentTitle("Laundry App Notifikasi").
+                setContentText("New Notifikasi")
+                .setTicker("Cek Cucian")
                 .setSmallIcon(R.drawable.clothes)
                 .setContentIntent(pendingIntent).build();
         NotificationManager notificationManager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);

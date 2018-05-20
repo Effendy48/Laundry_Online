@@ -20,15 +20,21 @@ public class MainActivity extends AppCompatActivity {
     TextView tv_email_view;
     Intent a;
 
-    String kd,email;
+    String kd,email,nama,no_hp,alamat;
     SharedPreferences sharedPreferences;
 
     public static final String TAG_KD = "kd";
     public static final String TAG_EMAIL = "email";
+    public static final String TAG_NAMA = "nama";
+    public static final String TAG_NO_HP = "no_hp";
+    public static final String TAG_ALAMAT = "alamat";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        getSupportActionBar().setTitle("Home");
+        getSupportActionBar().setBackgroundDrawable(getResources().getDrawable(R.color.colorAccent));
 
         AlarmManager alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
 
@@ -36,17 +42,17 @@ public class MainActivity extends AppCompatActivity {
         PendingIntent broadcast = PendingIntent.getBroadcast(this, 100, notificationIntent, PendingIntent.FLAG_UPDATE_CURRENT);
 
         Calendar cal = Calendar.getInstance();
-        cal.add(Calendar.SECOND, 5);
-        alarmManager.setRepeating(AlarmManager.RTC_WAKEUP,cal.getTimeInMillis(),AlarmManager.INTERVAL_FIFTEEN_MINUTES,broadcast);
+        cal.add(Calendar.HOUR, 5);
+        alarmManager.setRepeating(AlarmManager.RTC_WAKEUP,cal.getTimeInMillis(),AlarmManager.INTERVAL_HALF_HOUR,broadcast);
         //alarmManager.setExact(AlarmManager.RTC_WAKEUP, cal.getTimeInMillis(), broadcast);
 
 
         sharedPreferences = getSharedPreferences(Login.my_shared_preference, Context.MODE_PRIVATE);
         kd = getIntent().getStringExtra(TAG_KD);
         email = getIntent().getStringExtra(TAG_EMAIL);
-
-
-        getSupportActionBar().setTitle(email);
+        nama = getIntent().getStringExtra(TAG_NAMA);
+        no_hp = getIntent().getStringExtra(TAG_NO_HP);
+        alamat = getIntent().getStringExtra(TAG_ALAMAT);
 
         btn_Pesan = (Button)findViewById(R.id.btn_pesan);
 
@@ -56,6 +62,10 @@ public class MainActivity extends AppCompatActivity {
                 Intent klik = new Intent(getApplicationContext(),Pesan.class);
                 klik.putExtra("kd",getIntent().getStringExtra(TAG_KD));
                 klik.putExtra("email",getIntent().getStringExtra(TAG_EMAIL));
+                klik.putExtra("nama",getIntent().getStringExtra(TAG_NAMA));
+                klik.putExtra("no_hp",getIntent().getStringExtra(TAG_NO_HP));
+                klik.putExtra("alamat",getIntent().getStringExtra(TAG_ALAMAT));
+
                 startActivity(klik);
             }
         });

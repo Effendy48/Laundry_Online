@@ -45,12 +45,15 @@ public class Login extends AppCompatActivity {
     private static final String TAG_MESSAGE = "message";
     public final static String TAG_EMAIL = "email";
     public final static String TAG_ID = "kd";
+    public final static String TAG_NAMA = "nama";
+    public final static String TAG_ALAMAT = "alamat";
+    public final static String TAG_NO_HP = "no_hp";
 
     String TAG_JSON_OBJECT = "json_obj_req";
 
     SharedPreferences sharedPreferences;
     Boolean session = false;
-    String kd,email;
+    String kd,email,nama,alamat,no_hp;
 
     //RequestQueue requestQueue;
 
@@ -76,6 +79,9 @@ public class Login extends AppCompatActivity {
 
         kd = sharedPreferences.getString(TAG_ID,null);
         email = sharedPreferences.getString(TAG_EMAIL,null);
+        nama = sharedPreferences.getString(TAG_NAMA,null);
+        alamat = sharedPreferences.getString(TAG_ALAMAT,null);
+        no_hp = sharedPreferences.getString(TAG_NO_HP,null);
 
         if(session){
             /*NotificationCompat.Builder notificationCompat = (NotificationCompat.Builder) new NotificationCompat.Builder(getApplicationContext()).
@@ -87,6 +93,9 @@ public class Login extends AppCompatActivity {
             intent = new Intent(getApplicationContext(),MainActivity.class);
             intent.putExtra(TAG_ID,kd);
             intent.putExtra(TAG_EMAIL,email);
+            intent.putExtra(TAG_NAMA,nama);
+            intent.putExtra(TAG_ALAMAT,alamat);
+            intent.putExtra(TAG_NO_HP,no_hp);
             finish();
             startActivity(intent);
         }
@@ -154,6 +163,9 @@ public class Login extends AppCompatActivity {
                     if(success == 1){
                         String uname = jObj.getString(TAG_EMAIL);
                         String kd = jObj.getString(TAG_ID);
+                        String nama_user = jObj.getString(TAG_NAMA);
+                        String alamat_user = jObj.getString(TAG_ALAMAT);
+                        String no_hp_user = jObj.getString(TAG_NO_HP);
 
                         Log.e("Succesfully Login ", jObj.toString());
 
@@ -163,11 +175,17 @@ public class Login extends AppCompatActivity {
                         editor.putBoolean(session_status,true);
                         editor.putString(TAG_ID,kd);
                         editor.putString(TAG_EMAIL,uname);
+                        editor.putString(TAG_NAMA,nama_user);
+                        editor.putString(TAG_NO_HP,no_hp_user);
+                        editor.putString(TAG_ALAMAT,alamat_user);
                         editor.commit();
 
                         intent = new Intent(getApplicationContext(),MainActivity.class);
                         intent.putExtra(TAG_ID,kd);
                         intent.putExtra(TAG_EMAIL,uname);
+                        intent.putExtra(TAG_NAMA,nama_user);
+                        intent.putExtra(TAG_ALAMAT,alamat_user);
+                        intent.putExtra(TAG_NO_HP,no_hp_user);
                         finish();
                         startActivity(intent);
                     }else{
