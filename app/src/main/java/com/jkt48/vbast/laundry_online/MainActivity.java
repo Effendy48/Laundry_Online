@@ -55,7 +55,26 @@ public class MainActivity extends AppCompatActivity {
         alamat = getIntent().getStringExtra(TAG_ALAMAT);
 
         btn_Pesan = (Button)findViewById(R.id.btn_pesan);
+        btn_Tunggu = (Button)findViewById(R.id.btn_tunggu);
+        btn_Bayar = (Button)findViewById(R.id.btn_bayar);
 
+        btn_Bayar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(),Bayar.class);
+                intent.putExtra("id",kd);
+                startActivity(intent);
+            }
+        });
+
+        btn_Tunggu.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent klik = new Intent(getApplicationContext(),Tunggu.class);
+                klik.putExtra("id",getIntent().getStringExtra(TAG_KD));
+                startActivity(klik);
+            }
+        });
 
         btn_Pesan.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view){

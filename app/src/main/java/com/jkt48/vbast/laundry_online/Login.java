@@ -59,7 +59,8 @@ public class Login extends AppCompatActivity {
 
     Intent intent;
 
-    public static final String my_shared_preference = "my_shared_prefrence";
+    public static final
+    String my_shared_preference = "my_shared_prefrence";
     public static final String session_status = "session_status";
 
     SweetAlertDialog sweetAlertDialog;
@@ -74,7 +75,9 @@ public class Login extends AppCompatActivity {
 
 
         //Cek Session Login Jika True Maka Langsung Buka Main Activity
-        sharedPreferences = getSharedPreferences(my_shared_preference,Context.MODE_PRIVATE);
+        sharedPreferences = getSharedPreferences
+                (my_shared_preference,
+                        Context.MODE_PRIVATE);
         session = sharedPreferences.getBoolean(session_status,false);
 
         kd = sharedPreferences.getString(TAG_ID,null);

@@ -20,9 +20,10 @@
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.media.action.IMAGE_CAPTURE" />
+
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
-            </activity>
+        </activity>
         <activity
             android:name=".Landing"
             android:screenOrientation="portrait">
@@ -37,13 +38,18 @@
             android:screenOrientation="portrait" />
         <activity android:name=".Daftar" />
         <activity android:name=".Pesan" />
-        <activity android:name=".notification"></activity>
+        <activity android:name=".notification" />
+
         <receiver android:name=".AlarmReceiver">
             <intent-filter>
                 <action android:name="android.media.action.DISPLAY_NOTIFICATION" />
-                <action android:name="android.intent.category.DEFAULT"/>
+                <action android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </receiver>
+
+        <activity android:name=".Tunggu" />
+        <activity android:name=".Not_Found" />
+        <activity android:name=".Bayar"></activity>
     </application>
 
 </manifest>

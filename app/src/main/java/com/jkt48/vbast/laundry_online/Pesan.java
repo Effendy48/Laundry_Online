@@ -3,6 +3,8 @@ package com.jkt48.vbast.laundry_online;
 import android.app.NotificationManager;
 import android.content.Context;
 import android.content.Intent;
+import android.support.design.widget.BaseTransientBottomBar;
+import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.app.NotificationCompat;
@@ -117,7 +119,7 @@ public class Pesan extends AppCompatActivity {
         sweetAlertDialog = new SweetAlertDialog(this,SweetAlertDialog.PROGRESS_TYPE);
         btnTransaksi.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
+            public void onClick(final View view) {
                 sweetAlertDialog.setTitleText("Tunggu....");
                 sweetAlertDialog.show();
 
@@ -128,7 +130,10 @@ public class Pesan extends AppCompatActivity {
                     @Override
                     public void onResponse(String response) {
                         sweetAlertDialog.dismiss();
-                        Toast.makeText(getApplicationContext(),response,Toast.LENGTH_LONG).show();
+                       // Snackbar.make(view,"Makan", Snackbar.LENGTH_LONG).show();
+
+                        Snackbar.make(view,response,Snackbar.LENGTH_LONG).show();
+                        //Toast.makeText(getApplicationContext(),response,Toast.LENGTH_LONG).show();
                     }
                 }, new Response.ErrorListener() {
                     @Override
@@ -160,6 +165,5 @@ public class Pesan extends AppCompatActivity {
         berat_kg = tv_Berat.getText().toString();
         harga_per_kg = tv_harga_per_kg.getText().toString();
         total = tv_total_bayar.getText().toString();
-
     }
 }

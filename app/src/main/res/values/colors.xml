@@ -4,4 +4,6 @@
     <color name="colorPrimaryDark">#09f</color>
     <color name="colorAccent">#1a92e2</color>
     <color name="colorButtonPesan">#ff6003</color>
+    <color name="QRColorBlack">#000</color>
+    <color name="QRColorWhite">#fff</color>
 </resources>

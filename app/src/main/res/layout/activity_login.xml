@@ -65,7 +65,7 @@
             android:layout_marginLeft="@dimen/margin_horizontal"
             android:layout_marginRight="@dimen/margin_horizontal"
             android:layout_marginTop="29dp"
-            android:background="@drawable/radius_button"
+            android:background="#09f"
             android:text="Masuk"
             android:textColor="@color/colorPrimary" />
 
