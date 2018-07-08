@@ -7,6 +7,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
+import android.widget.Toast;
 
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
@@ -60,6 +62,13 @@ public class Tunggu extends AppCompatActivity {
         getSupportActionBar().setTitle("Tunggu");
         kd_member = getIntent().getStringExtra("id");
         getSupportActionBar().setBackgroundDrawable(getResources().getDrawable(R.color.colorPrimaryDark));
+        sweetAlertDialog = new SweetAlertDialog(this,SweetAlertDialog.PROGRESS_TYPE);
+
+
+        RecyclerView();
+        JSON_WEB_CALL();
+    }
+    private void RecyclerView(){
         recyclerView = (RecyclerView)findViewById(R.id.rv_tunggu);
         recyclerView.setHasFixedSize(true);
         recyclerLayoutManager = new LinearLayoutManager(this);
@@ -67,9 +76,6 @@ public class Tunggu extends AppCompatActivity {
 
         getDataTungguAdapters = new ArrayList<>();
 
-        sweetAlertDialog = new SweetAlertDialog(this,SweetAlertDialog.PROGRESS_TYPE);
-
-        JSON_WEB_CALL();
     }
     public void JSON_WEB_CALL(){
         sweetAlertDialog.setTitleText("Tunggu");
@@ -128,4 +134,21 @@ public class Tunggu extends AppCompatActivity {
         return null;
     }
 
+    @Override
+    protected void onStop() {
+        super.onStop();
+       Toast.makeText(this,"On Stop",Toast.LENGTH_LONG);
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        Toast.makeText(this,"On Pause",Toast.LENGTH_LONG);
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        Toast.makeText(this,"Back",Toast.LENGTH_LONG);
+    }
 }

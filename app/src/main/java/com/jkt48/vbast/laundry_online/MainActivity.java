@@ -7,9 +7,11 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import org.w3c.dom.Text;
 
@@ -23,11 +25,11 @@ public class MainActivity extends AppCompatActivity {
     String kd,email,nama,no_hp,alamat;
     SharedPreferences sharedPreferences;
 
-    public static final String TAG_KD = "kd";
-    public static final String TAG_EMAIL = "email";
-    public static final String TAG_NAMA = "nama";
-    public static final String TAG_NO_HP = "no_hp";
-    public static final String TAG_ALAMAT = "alamat";
+    private static final String TAG_KD = "kd";
+    private static final String TAG_EMAIL = "email";
+    private static final String TAG_NAMA = "nama";
+    private static final String TAG_NO_HP = "no_hp";
+    private static final String TAG_ALAMAT = "alamat";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,6 +49,16 @@ public class MainActivity extends AppCompatActivity {
         //alarmManager.setExact(AlarmManager.RTC_WAKEUP, cal.getTimeInMillis(), broadcast);
 
 
+        inisialisasi();
+        bayar();
+        tunggu();
+        pesan();
+
+
+    }
+
+    private void inisialisasi(){
+
         sharedPreferences = getSharedPreferences(Login.my_shared_preference, Context.MODE_PRIVATE);
         kd = getIntent().getStringExtra(TAG_KD);
         email = getIntent().getStringExtra(TAG_EMAIL);
@@ -57,7 +69,9 @@ public class MainActivity extends AppCompatActivity {
         btn_Pesan = (Button)findViewById(R.id.btn_pesan);
         btn_Tunggu = (Button)findViewById(R.id.btn_tunggu);
         btn_Bayar = (Button)findViewById(R.id.btn_bayar);
+    }
 
+    private void bayar(){
         btn_Bayar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -66,7 +80,8 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
+    }
+    private void tunggu(){
         btn_Tunggu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -75,7 +90,8 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(klik);
             }
         });
-
+    }
+    private void pesan(){
         btn_Pesan.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view){
                 Intent klik = new Intent(getApplicationContext(),Pesan.class);
@@ -90,4 +106,10 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        Log.d(MainActivity.class.getSimpleName(),"hALLO");
+        Toast.makeText(this,"Halo",Toast.LENGTH_LONG);
+    }
 }

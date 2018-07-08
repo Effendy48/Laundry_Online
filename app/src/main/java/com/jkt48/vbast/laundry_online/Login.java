@@ -74,6 +74,7 @@ public class Login extends AppCompatActivity {
         getSupportActionBar().hide();
 
 
+
         //Cek Session Login Jika True Maka Langsung Buka Main Activity
         sharedPreferences = getSharedPreferences
                 (my_shared_preference,
