@@ -27,7 +27,7 @@ public class RecyclerViewBayarAdapter extends RecyclerView.Adapter<RecyclerViewB
     }
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View inflater = LayoutInflater.from(context).inflate(R.layout.item_bayar,parent);
+        View inflater = LayoutInflater.from(context).inflate(R.layout.item_bayar,parent,false);
         return new ViewHolder(inflater);
     }
 
@@ -44,7 +44,7 @@ public class RecyclerViewBayarAdapter extends RecyclerView.Adapter<RecyclerViewB
 
     @Override
     public int getItemCount() {
-        return 0;
+        return getDataBayarAdapters.size();
     }
 
     class ViewHolder extends RecyclerView.ViewHolder {
