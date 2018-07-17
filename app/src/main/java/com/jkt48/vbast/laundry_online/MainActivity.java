@@ -17,6 +17,8 @@ import org.w3c.dom.Text;
 
 import java.util.Calendar;
 
+import Util.json_view;
+
 public class MainActivity extends AppCompatActivity {
     Button btn_Pesan,btn_Tunggu,btn_Bayar;
     TextView tv_email_view;
@@ -30,6 +32,8 @@ public class MainActivity extends AppCompatActivity {
     private static final String TAG_NAMA = "nama";
     private static final String TAG_NO_HP = "no_hp";
     private static final String TAG_ALAMAT = "alamat";
+
+    json_view json;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -75,9 +79,10 @@ public class MainActivity extends AppCompatActivity {
         btn_Bayar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(),Bayar.class);
+               Intent intent = new Intent(getApplicationContext(),Bayar.class);
                 intent.putExtra("id",kd);
                 startActivity(intent);
+
             }
         });
     }

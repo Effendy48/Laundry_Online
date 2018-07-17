@@ -1,6 +1,8 @@
 package com.jkt48.vbast.laundry_online;
 
 import android.content.Intent;
+import android.os.Handler;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -40,15 +42,20 @@ public class Bayar extends AppCompatActivity {
     JsonArrayRequest jsonArrayRequest;
     RequestQueue requestQueue;
 
-    List<getDataBayarAdapter> getDataBayarAdapters;
+    SwipeRefreshLayout swipeRefreshLayout;
 
+    List<getDataBayarAdapter> getDataBayarAdapters;
+    Handler handler;
     RecyclerView recyclerView;
     RecyclerView.LayoutManager recyclerLayoutManager;
     RecyclerView.Adapter recyclerAdapter;
+
+    json_view json;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_bayar);
+        swipeRefreshLayout = (SwipeRefreshLayout)findViewById(R.id.swipe_refresh_layout_archive);
         recyclerView = (RecyclerView)findViewById(R.id.rv_bayar);
         recyclerLayoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(recyclerLayoutManager);
@@ -59,8 +66,30 @@ public class Bayar extends AppCompatActivity {
 
         getDataBayarAdapters = new ArrayList<>();
 
-        JSON_WEB_CALL();
 
+        swipeRefresh();
+        JSON_WEB_CALL();
+    }
+
+    public void swipeRefresh(){
+        swipeRefreshLayout.setColorSchemeResources(R.color.colorAccent,R.color.colorButtonPesan,R.color.cardview_shadow_start_color);
+        swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                new Handler().postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        Intent intent = getIntent();
+                        overridePendingTransition(0,0);
+                        intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
+                        finish();
+                        overridePendingTransition(0,0);
+                        startActivity(intent);
+                        swipeRefreshLayout.setRefreshing(false);
+                    }
+                },1500);
+            }
+        });
     }
 
     public void JSON_WEB_CALL(){
@@ -105,4 +134,5 @@ public class Bayar extends AppCompatActivity {
         recyclerView.setAdapter(recyclerAdapter);
         return null;
     }
+
 }
